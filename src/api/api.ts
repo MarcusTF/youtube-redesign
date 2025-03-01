@@ -18,18 +18,21 @@ export type GetTagsResult = {
   name: string;
 };
 
-export const getTags = async ({ page, perPage }: GetTagsProps) => {
+export const getTags = async ({
+  page = 1,
+  perPage = 40,
+}: Partial<GetTagsProps> = {}) => {
   return await api.get<FakerResponse<GetTagsResult>>("custom", {
     params: {
       _quantity: perPage,
       _seed: page,
       id: Faker.uuid,
-      name: Faker.word,
+      name: Faker.pokemon,
     },
   });
 };
 
-export const useGetTags = ({ page = 1, perPage = 40 }: GetTagsProps) =>
+export const useGetTags = ({ page = 1, perPage = 40 }: Partial<GetTagsProps>) =>
   useQuery({
     queryKey: ["tags", { page, perPage }],
     queryFn: () => getTags({ page, perPage }),

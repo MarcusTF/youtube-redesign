@@ -1,0 +1,14 @@
+/* .home-container .tag-list-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 10px;
+  width: 100%;
+  overflow-x: scroll;
+} */
+
+.tag.tag--options {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px;
+  min-width: 48px;
+}

@@ -1,0 +1,41 @@
+.tag-list {
+  width: 100%;
+  gap: 8px;
+  list-style: none;
+  display: flex;
+  overflow-x: auto;
+  /* hide scrollbars */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 55px;
+}
+
+.tag-list::-webkit-scrollbar {
+  display: none;
+}
+
+.tag-container {
+  position: relative;
+}
+
+.tag-container svg {
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  position: absolute;
+  z-index: 2;
+}
+
+.tag-container::after {
+  background:
+    linear-gradient(270deg, #111111 38.52%, rgba(17, 17, 17, 0) 100%),
+    linear-gradient(270deg, #111111 38.52%, rgba(17, 17, 17, 0) 100%);
+  position: absolute;
+  content: "";
+  display: block;
+  width: 61px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}

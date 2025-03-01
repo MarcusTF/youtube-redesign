@@ -4,6 +4,7 @@ import Bell from "./bell.svg?react";
 import Chevron from "./chevron.svg?react";
 import CirclePlus from "./circlePlus.svg?react";
 import Clock from "./clock.svg?react";
+import Close from "./close.svg?react";
 import Collection from "./collection.svg?react";
 import Compass from "./compass.svg?react";
 import Gear from "./gear.svg?react";
@@ -13,6 +14,7 @@ import House from "./house.svg?react";
 import HouseOutline from "./houseoutline.svg?react";
 import MagnifyingGlass from "./magnifyingGlass.svg?react";
 import Mic from "./mic.svg?react";
+import Options from "./options.svg?react";
 import Playlist from "./playlist.svg?react";
 import Remote from "./remote.svg?react";
 import Shorts from "./shorts.svg?react";
@@ -23,21 +25,23 @@ import Youtube from "./youtube.svg?react";
 
 export const Svg = {
   Bell,
+  Chevron,
   CirclePlus,
   Clock,
+  Close,
   Collection,
   Compass,
   Gear,
   Hamburger,
   History,
   House,
+  HouseOutline,
   MagnifyingGlass,
   Mic,
+  Options,
   Playlist,
-  Chevron,
   Remote,
   Shorts,
-  HouseOutline,
   Subscriptions,
   ThumbsUp,
   Verified,

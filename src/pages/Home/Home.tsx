@@ -1,10 +1,11 @@
-import { TagList } from "../../components/TagList/Taglist";
+import { HomeTagList } from "./components/HomeTagList/HomeTagList";
+
 import "./Home.css";
 
 export default function Home() {
   return (
     <div className="home-container">
-      <TagList />
+      <HomeTagList />
       {/* <MainFeed /> */}
     </div>
   );
