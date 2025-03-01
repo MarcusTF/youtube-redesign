@@ -1,0 +1,68 @@
+.tag {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  display: flex;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tag--loading {
+  opacity: 0.5;
+  height: 36px;
+  width: 80px;
+  animation: skeleton 1.5s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  cursor: wait;
+}
+
+.tag--active {
+  background: var(--white);
+  color: var(--black);
+}
+
+@keyframes skeleton {
+  0% {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 0;
+  }
+  50% {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+  }
+  100% {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 0;
+  }
+}

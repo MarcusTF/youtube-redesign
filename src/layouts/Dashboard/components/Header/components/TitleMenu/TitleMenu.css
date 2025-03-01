@@ -1,0 +1,13 @@
+.header__title-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 100%;
+}
+
+.header__title-menu .header__title-menu-button--hamburger {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}

@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #111111;
+  --gradient: linear-gradient(90deg, #ff0033 0%, #f50057 100%);
+  --red: #ff0033;
+  --grey: #393939;
+  --background-selected: rgba(255, 170, 187, 0.14);
+  --white: #ffffff;
+  --not-quite-white: #f1f1f1;
+  --nearly-transparent-white: rgba(255, 255, 255, 0.06);
+  --black: #000000;
+  --dark-grey: #2a2a2a;
+  --font: "Roboto", sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  display: grid;
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-family: var(--font);
+  padding: 0;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}

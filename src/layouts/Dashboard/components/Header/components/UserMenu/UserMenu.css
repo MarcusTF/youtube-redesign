@@ -1,0 +1,27 @@
+.header__user-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.header__user-menu .header__user-menu-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+}
+
+.header__user-menu .header__user-menu-button--profile {
+  height: 28px;
+  width: 28px;
+}
+
+.header__user-menu .header__user-menu-button--profile img {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+}

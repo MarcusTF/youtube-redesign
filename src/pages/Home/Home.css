@@ -1,0 +1,46 @@
+.home-container {
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.home-container .tag-list {
+  width: 100%;
+  gap: 8px;
+  list-style: none;
+  display: flex;
+  overflow-x: auto;
+  /* hide scrollbars */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.home-container .tag-list::-webkit-scrollbar {
+  display: none;
+}
+
+.home-container .tag-container {
+  position: relative;
+}
+
+.home-container .tag-container svg {
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  position: absolute;
+  z-index: 2;
+}
+
+.home-container .tag-container::after {
+  background:
+    linear-gradient(270deg, #111111 38.52%, rgba(17, 17, 17, 0) 100%),
+    linear-gradient(270deg, #111111 38.52%, rgba(17, 17, 17, 0) 100%);
+  position: absolute;
+  content: "";
+  display: block;
+  width: 61px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
