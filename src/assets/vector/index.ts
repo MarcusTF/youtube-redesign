@@ -13,6 +13,7 @@ import History from "./history.svg?react";
 import House from "./house.svg?react";
 import HouseOutline from "./houseoutline.svg?react";
 import MagnifyingGlass from "./magnifyingGlass.svg?react";
+import MenuDots from "./menudots.svg?react";
 import Mic from "./mic.svg?react";
 import Options from "./options.svg?react";
 import Playlist from "./playlist.svg?react";
@@ -37,6 +38,7 @@ export const Svg = {
   House,
   HouseOutline,
   MagnifyingGlass,
+  MenuDots,
   Mic,
   Options,
   Playlist,

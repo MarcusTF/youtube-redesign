@@ -1,8 +1,8 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import { useHomeTagStore } from "../../../store/tag";
 
-import { useGetTags } from "../../../api/api";
 import Svg from "../../../assets/vector";
+import { useGetTags } from "../../../services/api/api";
 import { Input } from "../../inputs/Input/Input";
 import Tag from "../../TagList/components/Tag/Tag";
 import "./EditHomeFeedTagsModal.css";

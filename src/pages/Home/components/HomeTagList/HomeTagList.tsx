@@ -13,6 +13,7 @@ export function HomeTagList() {
   return (
     <>
       <TagList
+        modifier="home"
         leading={
           <Tag
             modifier="options"

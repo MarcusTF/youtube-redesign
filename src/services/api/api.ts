@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { VideoCardProps } from "../../components/VideoCard/VideoCard";
 import { Faker, FakerResponse } from "./api.types";
 
 export const API_URL = "https://fakerapi.it/api/v2/";
@@ -72,3 +73,44 @@ export const useGetSubscriptions = ({
     queryKey: ["subscriptions", { page, perPage }],
     queryFn: () => getSubscriptions({ page, perPage }),
   });
+
+export interface GetInCaseYouMissedProps {
+  page: number;
+  perPage: number;
+}
+
+export type GetInCaseYouMissedResult = VideoCardProps;
+
+export const getInCaseYouMissed = async ({
+  page,
+  perPage,
+}: GetInCaseYouMissedProps) => {
+  return await api.get<FakerResponse<GetInCaseYouMissedResult>>("custom", {
+    params: {
+      _quantity: perPage,
+      _seed: page,
+      id: Faker.uuid,
+      thumbnail: Faker.image,
+      duration: Faker.number,
+      channelAvatar: Faker.image,
+      title: Faker.streetName,
+      channelName: Faker.name,
+      views: Faker.number,
+      uploadDateTime: Faker.dateTime,
+    },
+  });
+};
+
+export const useGetInCaseYouMissed = ({
+  page = 1,
+  perPage = 15,
+}: GetInCaseYouMissedProps) =>
+  useQuery({
+    queryKey: ["inCaseYouMissed", { page, perPage }],
+    queryFn: () => getInCaseYouMissed({ page, perPage }),
+  });
+
+export interface GetInCaseYouMissedProps {
+  page: number;
+  perPage: number;
+}

@@ -1,10 +1,6 @@
-/* .home-container .tag-list-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-gap: 10px;
-  width: 100%;
-  overflow-x: scroll;
-} */
+.tag-list--home {
+  margin-bottom: 37px;
+}
 
 .tag.tag--options {
   display: flex;
