@@ -33,10 +33,10 @@ export function Notifications() {
           <div className="notifications__body">
             <ul className="notifications__list">
               {isLoading
-                ? Array.from(
-                    { length: 10 },
-                    () => EMPTY_VIDEO_FOR_SKELETON,
-                  ).map((notification) => (
+                ? Array.from({ length: 10 }, () => ({
+                    ...EMPTY_VIDEO_FOR_SKELETON,
+                    channelId: "1",
+                  })).map((notification) => (
                     <Notification
                       key={notification.id}
                       {...notification}
