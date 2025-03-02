@@ -36,6 +36,11 @@ export function TagList({
             </Tag>
           </li>
         ))}
+        {tagsQuery?.error && (
+          <li className="tag-item">
+            <Tag>{tagsQuery.error.message}</Tag>
+          </li>
+        )}
       </ul>
       <Svg.Chevron />
     </div>

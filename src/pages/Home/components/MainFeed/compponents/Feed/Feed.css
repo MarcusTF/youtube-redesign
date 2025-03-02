@@ -1,7 +1,8 @@
 .feed .feed-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(476px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  padding-top: 20px;
   column-gap: 19px;
   row-gap: 45px;
 }

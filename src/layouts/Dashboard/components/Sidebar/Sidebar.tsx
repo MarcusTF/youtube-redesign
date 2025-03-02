@@ -74,7 +74,7 @@ export default function Sidebar() {
             <MenuItemAccordion
               to="/playlists"
               icon={<Svg.Playlist />}
-              iconActive={<Svg.Playlist />}
+              activeIcon={<Svg.Playlist />}
               label="Playlists"
             >
               <ul>
@@ -99,6 +99,7 @@ export default function Sidebar() {
               to="/collections"
               icon={<Svg.Collection />}
               label="Collections"
+              activeIcon={<Svg.Collection />}
             >
               <ul>
                 <li className="sidebar-item">
@@ -121,6 +122,7 @@ export default function Sidebar() {
               to="/subscriptions"
               icon={<Svg.Subscriptions />}
               label="Subscriptions"
+              activeIcon={<Svg.Subscriptions />}
             >
               :)
             </MenuItemAccordion>

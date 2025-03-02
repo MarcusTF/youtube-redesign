@@ -1,0 +1,80 @@
+.suggestions {
+  --fade: linear-gradient(
+    266.56deg,
+    #1f2224 31.83%,
+    rgba(37, 34, 34, 0) 83.17%
+  );
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 100%;
+  gap: 30px;
+  background-color: transparent;
+  border: 1px solid #b082ff5e;
+  padding: 30px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.suggestions.closed {
+  animation: slide-up-and-fade-out 0.1s ease forwards;
+}
+
+@keyframes slide-up-and-fade-out {
+  0% {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  99% {
+    display: flex;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.suggestions .suggestions__videos {
+  list-style: none;
+  display: flex;
+  overflow: auto;
+  width: 100%;
+  gap: 20px;
+}
+
+.suggestions .suggestions__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+.suggestions .suggestions__header h2 {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.suggestions .suggestions__button {
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.suggestions .suggestions__button svg {
+  height: 24px;
+  width: 24px;
+  fill: var(--white);
+}

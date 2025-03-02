@@ -48,7 +48,7 @@ export interface VideoCardProps {
   loading?: boolean;
 }
 
-export const EMPTY_VIDEO_FOR_SKELETON = {
+const EMPTY_VIDEO_FOR_SKELETON = {
   thumbnail: {
     url: "LOADING",
     description: ".",

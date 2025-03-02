@@ -85,21 +85,25 @@ export const useGetSubscriptions = ({
     queryFn: () => getSubscriptions({ page, perPage }),
   });
 
-export interface GetInCaseYouMissedProps {
+export interface VideosProps {
   page: number;
   perPage: number;
+  tag?: string;
 }
+
+export type GetInCaseYouMissedProps = VideosProps;
 
 export type GetInCaseYouMissedResult = VideoCardProps;
 
 export const getInCaseYouMissed = async ({
   page,
   perPage,
+  tag,
 }: GetInCaseYouMissedProps) => {
   return await api.get<FakerResponse<GetInCaseYouMissedResult>>("custom", {
     params: {
       _quantity: perPage,
-      _seed: page,
+      _seed: page + tag,
       ...VIDEO_PARAMS,
     },
   });
@@ -108,39 +112,57 @@ export const getInCaseYouMissed = async ({
 export const useGetInCaseYouMissed = ({
   page = 1,
   perPage = 15,
+  tag,
 }: GetInCaseYouMissedProps) =>
   useQuery({
-    queryKey: ["inCaseYouMissed", { page, perPage }],
-    queryFn: () => getInCaseYouMissed({ page, perPage }),
+    queryKey: ["inCaseYouMissed", { page, perPage, tag }],
+    queryFn: () => getInCaseYouMissed({ page, perPage, tag }),
   });
 
-export interface GetFeedProps {
-  page: number;
-  perPage: number;
-}
+export type GetFeedProps = VideosProps;
 
 export type GetFeedResult = VideoCardProps;
 
-export const getFeed = async ({ page, perPage }: GetFeedProps) => {
+export const getFeed = async ({ page, perPage, tag }: GetFeedProps) => {
   return await api.get<FakerResponse<GetFeedResult>>("custom", {
     params: {
       _quantity: perPage,
-      _seed: page + "9999",
+      _seed: page + (tag || "") + 9999,
       ...VIDEO_PARAMS,
     },
   });
 };
 
-export const useGetFeed = ({ page = 1, perPage = 15 }: GetFeedProps) =>
+export const useGetFeed = ({ page = 1, perPage = 15, tag }: GetFeedProps) =>
   useQuery({
-    queryKey: ["feed", { page, perPage }],
-    queryFn: () => getFeed({ page, perPage }),
+    queryKey: ["feed", { page, perPage, tag }],
+    queryFn: () => getFeed({ page, perPage, tag }),
   });
 
-export interface GetSearchProps {
-  query: string;
-  page: number;
-  perPage: number;
-}
+export type GetSuggestionsProps = VideosProps;
 
-export type GetSearchResult = VideoCardProps;
+export type GetSuggestionsResult = VideoCardProps;
+
+export const getSuggestions = async ({
+  page,
+  perPage,
+  tag,
+}: GetSuggestionsProps) => {
+  return await api.get<FakerResponse<GetSuggestionsResult>>("custom", {
+    params: {
+      _quantity: perPage,
+      _seed: page + (tag || "") + 9999,
+      ...VIDEO_PARAMS,
+    },
+  });
+};
+
+export const useGetSuggestions = ({
+  page = 1,
+  perPage = 15,
+  tag,
+}: GetSuggestionsProps) =>
+  useQuery({
+    queryKey: ["suggestions", { page, perPage, tag }],
+    queryFn: () => getSuggestions({ page, perPage, tag }),
+  });

@@ -1,10 +1,19 @@
 import VideoCard from "../../../../../../components/VideoCard/VideoCard";
 import { useGetFeed } from "../../../../../../services/api/api";
+import { useTagStore } from "../../../../../../store/tag";
 
 import "./Feed.css";
 
 export default function Feed() {
-  const { data, isLoading } = useGetFeed({ page: 1, perPage: 20 });
+  const { home } = useTagStore();
+  const { data, isLoading } = useGetFeed({
+    page: 1,
+    perPage: 9,
+    tag: home.selectedTag || "",
+  });
+
+  console.log(home);
+
   return (
     <div className="feed">
       <ul className="feed-list">
