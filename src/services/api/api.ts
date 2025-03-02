@@ -93,7 +93,9 @@ export interface VideosProps {
 
 export type GetInCaseYouMissedProps = VideosProps;
 
-export type GetInCaseYouMissedResult = VideoCardProps;
+export type GetInCaseYouMissedResult = VideoCardProps & {
+  [key: string]: unknown;
+};
 
 export const getInCaseYouMissed = async ({
   page,
@@ -103,7 +105,7 @@ export const getInCaseYouMissed = async ({
   return await api.get<FakerResponse<GetInCaseYouMissedResult>>("custom", {
     params: {
       _quantity: perPage,
-      _seed: page + tag,
+      _seed: page + (tag || ""),
       ...VIDEO_PARAMS,
     },
   });
@@ -121,7 +123,7 @@ export const useGetInCaseYouMissed = ({
 
 export type GetFeedProps = VideosProps;
 
-export type GetFeedResult = VideoCardProps;
+export type GetFeedResult = VideoCardProps & { [key: string]: unknown };
 
 export const getFeed = async ({ page, perPage, tag }: GetFeedProps) => {
   return await api.get<FakerResponse<GetFeedResult>>("custom", {
@@ -141,7 +143,7 @@ export const useGetFeed = ({ page = 1, perPage = 15, tag }: GetFeedProps) =>
 
 export type GetSuggestionsProps = VideosProps;
 
-export type GetSuggestionsResult = VideoCardProps;
+export type GetSuggestionsResult = VideoCardProps & { [key: string]: unknown };
 
 export const getSuggestions = async ({
   page,
