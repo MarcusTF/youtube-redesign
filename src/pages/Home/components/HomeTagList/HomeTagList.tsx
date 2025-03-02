@@ -2,14 +2,13 @@ import Svg from "../../../../assets/vector";
 import EditHomeFeedTagsModal from "../../../../components/modals/EditHomeFeedTagsModal/EditHomeFeedTagsModal";
 import Tag from "../../../../components/TagList/components/Tag/Tag";
 import { TagList } from "../../../../components/TagList/TagList";
-import { useHomeTagStore } from "../../../../store/tag";
+import { useHomeStore } from "../../../../store/home";
 
 import "./HomeTagList.css";
 
 export function HomeTagList() {
-  const { isEditTagsModalOpen, setIsEditTagsModalOpen } = useHomeTagStore();
+  const { isEditTagsModalOpen, setIsEditTagsModalOpen } = useHomeStore();
 
-  console.log(isEditTagsModalOpen);
   return (
     <>
       <TagList

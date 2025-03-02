@@ -1,0 +1,13 @@
+.subscription .subscription__avatar {
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.subscription--loading {
+  border-radius: 8px;
+  margin-top: 1px;
+  height: 44px;
+  animation: skeleton 1s infinite;
+}

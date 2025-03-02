@@ -1,5 +1,5 @@
 import * as Accordion from "@radix-ui/react-accordion";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Svg from "../../../../../../assets/vector";
 
 import * as Separator from "@radix-ui/react-separator";
@@ -9,7 +9,7 @@ import "./MenuItemAccordion.css";
 export default function MenuItemAccordion({
   to,
   icon,
-  // activeIcon,
+  activeIcon,
   label,
   children,
 }: {
@@ -20,6 +20,7 @@ export default function MenuItemAccordion({
   children: React.ReactNode;
 }) {
   const { isOpen } = useSidebarStore();
+  const active = useLocation().pathname === to;
 
   return (
     <li className="sidebar-item sidebar-item--accordion">
@@ -30,8 +31,12 @@ export default function MenuItemAccordion({
         >
           <Accordion.Header className="menu-item-accordion__header">
             <NavLink to={to} className="menu-item-accordion__link">
-              {icon}
-              {/* {activeIcon} */}
+              {active && (
+                <div className="sidebar-icon sidebar-icon--active">
+                  {activeIcon || icon}
+                </div>
+              )}
+              {!active && <div className="sidebar-icon">{icon}</div>}
               <span className="menu-item-accordion__label">{label}</span>
             </NavLink>
             <Separator.Root

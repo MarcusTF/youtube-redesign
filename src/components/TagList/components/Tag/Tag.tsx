@@ -1,6 +1,6 @@
 import clsx, { ClassValue } from "clsx";
 import { MouseEventHandler } from "react";
-import { useTagStore } from "../../../../store/tag";
+import { useHomeStore } from "../../../../store/home";
 import "./Tag.css";
 
 export default function Tag({
@@ -16,10 +16,9 @@ export default function Tag({
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   modifier?: ClassValue | ClassValue[];
 }) {
-  const { home } = useTagStore();
+  const home = useHomeStore();
 
   function onClickHandler(): MouseEventHandler<HTMLButtonElement> | undefined {
-    console.log("Tag clicked");
     if (!id) return undefined;
     if (!onClick && !home.setSelectedTag) return undefined;
     if (onClick) return onClick;

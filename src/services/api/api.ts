@@ -231,3 +231,30 @@ export function useGetUser({ username }: GetUserProps) {
     }),
   });
 }
+
+export type GetNotificationsProps = VideosProps;
+
+export type GetNotificationsResult = VideoCardProps & {
+  [key: string]: unknown;
+};
+
+export async function getNotifications({ page, perPage, tag }: GetShortsProps) {
+  return await api.get<FakerResponse<GetNotificationsResult>>("custom", {
+    params: {
+      _quantity: perPage,
+      _seed: page + (tag || "") + 8888,
+      ...VIDEO_PARAMS,
+    },
+  });
+}
+
+export function useGetNotifications({
+  page = 1,
+  perPage = 15,
+  tag,
+}: GetShortsProps) {
+  return useQuery({
+    queryKey: ["notifications", { page, perPage, tag }],
+    queryFn: () => getNotifications({ page, perPage, tag }),
+  });
+}

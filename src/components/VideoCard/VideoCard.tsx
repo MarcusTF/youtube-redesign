@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import Svg from "../../assets/vector";
 import { bemModifiers } from "../../services/utilities";
 import { DateTime, Image } from "../../types";
+import { EMPTY_VIDEO_FOR_SKELETON } from "./VideoCard.constants";
 import "./VideoCard.css";
 
 export interface VideoCardProps {
@@ -52,29 +53,6 @@ export interface VideoCardProps {
    */
   short?: boolean;
 }
-
-const EMPTY_VIDEO_FOR_SKELETON = {
-  thumbnail: {
-    url: "LOADING",
-    description: ".",
-    title: "",
-  },
-  duration: 0,
-  channelAvatar: {
-    url: "LOADING",
-    description: ".",
-    title: ".",
-  },
-  title: ".",
-  channelName: ".",
-  views: 0,
-  uploadDateTime: {
-    date: "",
-    timezone: "",
-    timezone_type: 1,
-  },
-  id: "loading",
-} satisfies VideoCardProps;
 
 function calculateDurationFromSeconds(seconds: number): string {
   const hours = Math.floor(seconds / 3600);
@@ -131,12 +109,14 @@ const VideoCard = ({
             <div className="video-card__thumbnail-background skeleton" />
           )}
         </div>
-        <span
-          className="video-card__duration"
-          aria-label={`Duration: ${calculateDurationFromSeconds(duration)}`}
-        >
-          {calculateDurationFromSeconds(duration)}
-        </span>
+        {!short && (
+          <span
+            className="video-card__duration"
+            aria-label={`Duration: ${calculateDurationFromSeconds(duration)}`}
+          >
+            {calculateDurationFromSeconds(duration)}
+          </span>
+        )}
       </div>
 
       <div className="video-card__info-container">

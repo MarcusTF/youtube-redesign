@@ -135,7 +135,7 @@ import YouFilled from "./you.filled.svg?react";
 import YouOutline from "./you.outline.svg?react";
 import YouTube from "./youtube.svg?react";
 
-export default {
+const SVG = {
   Add: { outline: AddOutline },
   AddSolo: { outline: AddSoloOutline },
   AddToPlaylist: { outline: AddToPlaylistOutline },
@@ -238,6 +238,8 @@ export default {
   You: { outline: YouOutline, filled: YouFilled },
   YouTube,
 };
+
+export default SVG;
 
 export type SvgComponent = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {

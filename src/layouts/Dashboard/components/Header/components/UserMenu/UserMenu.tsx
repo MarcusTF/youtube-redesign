@@ -1,5 +1,6 @@
 import ProfilePhoto from "../../../../../../assets/raster/profilephoto.png";
 import Svg from "../../../../../../assets/vector";
+import { Notifications } from "./components/Notifications/Notifications";
 
 import "./UserMenu.css";
 
@@ -9,9 +10,7 @@ export const UserMenu = () => {
       <button className="header__user-menu-button">
         <Svg.Add.outline />
       </button>
-      <button className="header__user-menu-button">
-        <Svg.Notifs.outline />
-      </button>
+      <Notifications />
       <button className="header__user-menu-button">
         <Svg.Settings.outline />
       </button>

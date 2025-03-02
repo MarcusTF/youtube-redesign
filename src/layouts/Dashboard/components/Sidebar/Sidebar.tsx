@@ -7,6 +7,7 @@ import { useSidebarStore } from "../../../../store/sidebar";
 import "./Sidebar.css";
 import MenuItem from "./components/MenuItem/MenuItem";
 import MenuItemAccordion from "./components/MenuItemAccordion/MenuItemAccordion";
+import Subs from "./components/Subs/Subs";
 
 export default function Sidebar() {
   const { isOpen } = useSidebarStore();
@@ -107,7 +108,7 @@ export default function Sidebar() {
             label="Subscriptions"
             activeIcon={<Svg.Subs.filled />}
           >
-            :)
+            <Subs />
           </MenuItemAccordion>
           <Separator.Root className="separator" orientation="horizontal" />
         </ul>

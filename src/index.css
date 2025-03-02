@@ -42,3 +42,36 @@ html {
   margin: 0;
   padding: 0;
 }
+
+@keyframes skeleton {
+  0% {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 0;
+  }
+  50% {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 100% 0;
+  }
+  100% {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.14) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 0;
+  }
+}

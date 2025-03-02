@@ -1,0 +1,77 @@
+.notifications__content {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: 100vw;
+  max-width: 535px;
+  height: 683px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: var(--not-quite-black);
+  border-radius: 20px;
+  overflow-y: hidden;
+  z-index: 1000;
+  animation: slide-down-fade-in 0.1s ease-in-out forwards;
+}
+.notifications__header {
+  width: 100%;
+  padding: 17px 19px;
+  border-bottom: 1px solid var(--nearly-transparent-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notifications__header h2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.notifications__header svg {
+  width: 24px;
+  height: 24px;
+}
+
+.notifications__header button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.notifications__header button:hover,
+.notifications__header button:focus-visible {
+  opacity: 1;
+}
+
+.notifications__body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.notifications__list {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 20px;
+  max-width: 535px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@keyframes slide-down-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

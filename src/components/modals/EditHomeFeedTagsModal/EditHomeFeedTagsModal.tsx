@@ -1,14 +1,14 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { useHomeTagStore } from "../../../store/tag";
 
 import Svg from "../../../assets/vector";
 import { useGetTags } from "../../../services/api/api";
+import { useHomeStore } from "../../../store/home";
 import { Input } from "../../inputs/Input/Input";
 import Tag from "../../TagList/components/Tag/Tag";
 import "./EditHomeFeedTagsModal.css";
 
 export default function EditHomeFeedTagsModal() {
-  const { isEditTagsModalOpen, setIsEditTagsModalOpen } = useHomeTagStore();
+  const { isEditTagsModalOpen, setIsEditTagsModalOpen } = useHomeStore();
 
   const { data, isLoading } = useGetTags({ perPage: 30 });
 

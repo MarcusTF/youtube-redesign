@@ -1,11 +1,11 @@
 import VideoCard from "../../../../../../components/VideoCard/VideoCard";
 import { useGetFeed } from "../../../../../../services/api/api";
-import { useTagStore } from "../../../../../../store/tag";
+import { useHomeStore } from "../../../../../../store/home";
 
 import "./Feed.css";
 
 export default function Feed() {
-  const { home } = useTagStore();
+  const home = useHomeStore();
   const { data, isLoading } = useGetFeed({
     page: 1,
     perPage: 9,
