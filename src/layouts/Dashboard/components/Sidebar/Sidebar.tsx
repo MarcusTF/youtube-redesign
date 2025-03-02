@@ -5,6 +5,7 @@ import Svg from "../../../../assets/vector";
 
 import { useSidebarStore } from "../../../../store/sidebar";
 import "./Sidebar.css";
+import MenuItem from "./components/MenuItem/MenuItem";
 import MenuItemAccordion from "./components/MenuItemAccordion/MenuItemAccordion";
 
 export default function Sidebar() {
@@ -14,119 +15,101 @@ export default function Sidebar() {
     <aside className={clsx(["sidebar", { "sidebar--closed": !isOpen }])}>
       <nav className="sidebar-nav">
         <ul className="sidebar-list">
-          <li className="sidebar-item">
-            <NavLink to="/" className="sidebar-link sidebar-link--home">
-              <Svg.House className="sidebar-icon sidebar-icon--active" />
-              <Svg.HouseOutline className="sidebar-icon" />
-              <span className="sidebar-text">Home</span>
-            </NavLink>
-          </li>
-          <li className="sidebar-item">
-            <NavLink
-              to="/explore"
-              className="sidebar-link sidebar-link--explore"
-            >
-              <Svg.Compass />
-              <span className="sidebar-text">Explore</span>
-            </NavLink>
-          </li>
-          <li className="sidebar-item">
-            <NavLink to="/shorts" className="sidebar-link sidebar-link--shorts">
-              <Svg.Shorts />
-              <span className="sidebar-text">Shorts</span>
-            </NavLink>
-          </li>
-          <li className="sidebar-item">
-            <NavLink to="/tv" className="sidebar-link sidebar-link--tv">
-              <Svg.Remote />
-              <span className="sidebar-text">TV Mode</span>
-            </NavLink>
-          </li>
+          <MenuItem
+            to="/"
+            icon={<Svg.Home.outline />}
+            activeIcon={<Svg.Home.filled />}
+            label="Home"
+          />
+          <MenuItem
+            to="/explore"
+            icon={<Svg.Explore.outline />}
+            activeIcon={<Svg.Explore.filled />}
+            label="Explore"
+          />
+          <MenuItem
+            to="/shorts"
+            icon={<Svg.Shorts.outline />}
+            activeIcon={<Svg.Shorts.filled />}
+            label="Shorts"
+          />
+          <MenuItem
+            to="/tv"
+            icon={<Svg.Tv.outline />}
+            activeIcon={<Svg.Tv.filled />}
+            label="TV Mode"
+          />
           <Separator.Root className="separator" orientation="horizontal" />
-          <li className="sidebar-item">
-            <NavLink
-              to="/history"
-              className="sidebar-link sidebar-link--history"
-            >
-              <Svg.History />
-              <span className="sidebar-text">History</span>
-            </NavLink>
-          </li>
-          <li className="sidebar-item">
-            <NavLink
-              to="/watch-later"
-              className="sidebar-link sidebar-link--watch-later"
-            >
-              <Svg.Clock />
-              <span className="sidebar-text">Watch Later</span>
-            </NavLink>
-          </li>
-          <li className="sidebar-item">
-            <NavLink
-              to="/liked-videos"
-              className="sidebar-link sidebar-link--liked-videos"
-            >
-              <Svg.ThumbsUp />
-              <span className="sidebar-text">Liked Videos</span>
-            </NavLink>
-          </li>
-          <li className="sidebar-item sidebar-item--accordion">
-            <MenuItemAccordion
-              to="/playlists"
-              icon={<Svg.Playlist />}
-              activeIcon={<Svg.Playlist />}
-              label="Playlists"
-            >
-              <ul>
-                <li className="sidebar-item">
-                  <NavLink to="/playlists/1">Playlist 1</NavLink>
-                </li>
-                <li className="sidebar-item">
-                  <NavLink to="/playlists/2">Playlist 2</NavLink>
-                </li>
-                <li className="sidebar-item">
-                  <NavLink to="/playlists/3">Playlist 3</NavLink>
-                </li>
-                <li className="sidebar-item">
-                  <NavLink to="/playlists/4">Playlist 4</NavLink>
-                </li>
-              </ul>
-            </MenuItemAccordion>
-          </li>
+          <MenuItem
+            to="/history"
+            icon={<Svg.History.outline />}
+            activeIcon={<Svg.History.filled />}
+            label="History"
+          />
+          <MenuItem
+            to="/watch-later"
+            icon={<Svg.WatchLater.outline />}
+            activeIcon={<Svg.WatchLater.filled />}
+            label="Watch Later"
+          />{" "}
+          <MenuItem
+            to="/liked-videos"
+            icon={<Svg.LikedVideos.outline />}
+            activeIcon={<Svg.LikedVideos.filled />}
+            label="Liked Videos"
+          />
+          <MenuItemAccordion
+            to="/playlists"
+            icon={<Svg.Playlists.outline />}
+            activeIcon={<Svg.Playlists.filled />}
+            label="Playlists"
+          >
+            <ul>
+              <li className="sidebar-item">
+                <NavLink to="/playlists/1">Playlist 1</NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink to="/playlists/2">Playlist 2</NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink to="/playlists/3">Playlist 3</NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink to="/playlists/4">Playlist 4</NavLink>
+              </li>
+            </ul>
+          </MenuItemAccordion>
           <Separator.Root className="separator" orientation="horizontal" />
-          <li className="sidebar-item sidebar-item--accordion">
-            <MenuItemAccordion
-              to="/collections"
-              icon={<Svg.Collection />}
-              label="Collections"
-              activeIcon={<Svg.Collection />}
-            >
-              <ul>
-                <li className="sidebar-item">
-                  <NavLink to="/collections/1">Gaming</NavLink>
-                </li>
-                <li className="sidebar-item">
-                  <NavLink to="/collections/2">Playlist 2</NavLink>
-                </li>
-                <li className="sidebar-item">
-                  <NavLink to="/collections/3">Playlist 3</NavLink>
-                </li>
-                <li className="sidebar-item">
-                  <NavLink to="/collections/4">Playlist 4</NavLink>
-                </li>
-              </ul>
-            </MenuItemAccordion>
-          </li>
-          <li className="sidebar-item sidebar-item--accordion">
-            <MenuItemAccordion
-              to="/subscriptions"
-              icon={<Svg.Subscriptions />}
-              label="Subscriptions"
-              activeIcon={<Svg.Subscriptions />}
-            >
-              :)
-            </MenuItemAccordion>
-          </li>
+          <MenuItemAccordion
+            to="/collections"
+            icon={<Svg.Collections.outline />}
+            label="Collections"
+            activeIcon={<Svg.Collections.filled />}
+          >
+            <ul>
+              <li className="sidebar-item">
+                <NavLink to="/collections/1">Gaming</NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink to="/collections/2">Playlist 2</NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink to="/collections/3">Playlist 3</NavLink>
+              </li>
+              <li className="sidebar-item">
+                <NavLink to="/collections/4">Playlist 4</NavLink>
+              </li>
+            </ul>
+          </MenuItemAccordion>
+          <MenuItemAccordion
+            to="/subscriptions"
+            icon={<Svg.Subs.outline />}
+            label="Subscriptions"
+            activeIcon={<Svg.Subs.filled />}
+          >
+            :)
+          </MenuItemAccordion>
+          <Separator.Root className="separator" orientation="horizontal" />
         </ul>
       </nav>
     </aside>

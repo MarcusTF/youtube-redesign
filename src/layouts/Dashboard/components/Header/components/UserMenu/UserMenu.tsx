@@ -7,13 +7,13 @@ export const UserMenu = () => {
   return (
     <div className="header__user-menu">
       <button className="header__user-menu-button">
-        <Svg.CirclePlus />
+        <Svg.Add.outline />
       </button>
       <button className="header__user-menu-button">
-        <Svg.Bell />
+        <Svg.Notifs.outline />
       </button>
       <button className="header__user-menu-button">
-        <Svg.Gear />
+        <Svg.Settings.outline />
       </button>
       <button className="header__user-menu-button header__user-menu-button--profile">
         <img src={ProfilePhoto} alt="User: Juxtaposed" />

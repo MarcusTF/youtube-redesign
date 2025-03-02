@@ -23,7 +23,7 @@ export function HomeTagList() {
               setIsEditTagsModalOpen(!isEditTagsModalOpen);
             }}
           >
-            <Svg.Options />
+            <Svg.MagicFeed.outline />
           </Tag>
         }
       />

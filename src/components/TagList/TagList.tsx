@@ -42,7 +42,7 @@ export function TagList({
           </li>
         )}
       </ul>
-      <Svg.Chevron />
+      <Svg.ArrowDown.outline />
     </div>
   );
 }

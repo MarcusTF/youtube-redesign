@@ -22,29 +22,34 @@ export default function MenuItemAccordion({
   const { isOpen } = useSidebarStore();
 
   return (
-    <Accordion.Root type="multiple" className="menu-item-accordion">
-      <Accordion.Item
-        value={isOpen ? "open" : "closed"}
-        className="menu-item-accordion__item"
-      >
-        <Accordion.Header className="menu-item-accordion__header">
-          <NavLink to={to} className="menu-item-accordion__link">
-            {icon}
-            {/* {activeIcon} */}
-            <span className="menu-item-accordion__label">{label}</span>
-          </NavLink>
-          <Separator.Root
-            className="menu-item-accordion__separator"
-            orientation="vertical"
-          />
-          <Accordion.Trigger className="menu-item-accordion__trigger">
-            <Svg.Chevron className="menu-item-accordion__chevron" aria-hidden />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Content className="menu-item-accordion__content">
-          {children}
-        </Accordion.Content>
-      </Accordion.Item>
-    </Accordion.Root>
+    <li className="sidebar-item sidebar-item--accordion">
+      <Accordion.Root type="multiple" className="menu-item-accordion">
+        <Accordion.Item
+          value={isOpen ? "open" : "closed"}
+          className="menu-item-accordion__item"
+        >
+          <Accordion.Header className="menu-item-accordion__header">
+            <NavLink to={to} className="menu-item-accordion__link">
+              {icon}
+              {/* {activeIcon} */}
+              <span className="menu-item-accordion__label">{label}</span>
+            </NavLink>
+            <Separator.Root
+              className="menu-item-accordion__separator"
+              orientation="vertical"
+            />
+            <Accordion.Trigger className="menu-item-accordion__trigger">
+              <Svg.ArrowDown.outline
+                className="menu-item-accordion__chevron"
+                aria-hidden
+              />
+            </Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className="menu-item-accordion__content">
+            {children}
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion.Root>
+    </li>
   );
 }

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import Svg from "../../../../../../assets/vector";
 import VideoCard from "../../../../../../components/VideoCard/VideoCard";
-import { useGetInCaseYouMissed } from "../../../../../../services/api/api";
+import { useGetSuggestions } from "../../../../../../services/api/api";
 
 import clsx from "clsx";
 import { bemModifiers } from "../../../../../../services/utilities";
@@ -13,7 +13,7 @@ export default function Suggestions() {
 
   const videoListRef = useRef<HTMLUListElement>(null);
 
-  const { data, isLoading } = useGetInCaseYouMissed({
+  const { data, isLoading } = useGetSuggestions({
     page: 1,
     perPage: 4,
     tag: "suggested",
@@ -27,7 +27,7 @@ export default function Suggestions() {
       })}
     >
       <div className="suggestions__header">
-        <h2>In Case You Missed</h2>
+        <h2>Suggestions based on recent watches</h2>
         <div className="suggestions__actions">
           <button
             className={bemModifiers("suggestions__button", [
@@ -36,7 +36,10 @@ export default function Suggestions() {
             ])}
             onClick={() => setClosed(true)}
           >
-            <Svg.Close /> Not interested
+            <Svg.Close.outline />
+            <span className="button__text button__text--not-interested">
+              Not interested
+            </span>
           </button>
           <button
             className={bemModifiers("suggestions__button", [
@@ -45,7 +48,10 @@ export default function Suggestions() {
             ])}
             onClick={() => setShowMore(true)}
           >
-            <Svg.ThumbsUp /> Show me more
+            <Svg.LikedVideos.outline />
+            <span className="button__text button__text--show-more">
+              Show me more
+            </span>
           </button>
         </div>
       </div>

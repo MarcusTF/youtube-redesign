@@ -28,17 +28,17 @@ export default function InCaseYouMissed() {
   useEffect(() => {
     const listElement = videoListRef.current;
     if (listElement) {
-      listElement.addEventListener('scroll', checkScrollability);
+      listElement.addEventListener("scroll", checkScrollability);
       // Initial check
       checkScrollability();
 
       return () => {
-        listElement.removeEventListener('scroll', checkScrollability);
+        listElement.removeEventListener("scroll", checkScrollability);
       };
     }
   }, [data]);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (videoListRef.current) {
       // Get the width of a single video card plus its margin
       const videoCardWidth =
@@ -50,25 +50,27 @@ export default function InCaseYouMissed() {
 
       // Scroll horizontally by that distance
       videoListRef.current.scrollBy({
-        left: direction === 'right' ? scrollDistance : -scrollDistance,
+        left: direction === "right" ? scrollDistance : -scrollDistance,
         behavior: "smooth",
       });
     }
   };
 
   return (
-    <div className={clsx("in-case-you-missed", {
-      "no-left-fade": !canScrollLeft,
-      "no-right-fade": !canScrollRight,
-      closed
-    })}>
+    <div
+      className={clsx("in-case-you-missed", {
+        "no-left-fade": !canScrollLeft,
+        "no-right-fade": !canScrollRight,
+        closed,
+      })}
+    >
       <div className="in-case-you-missed__header">
         <h2>In Case You Missed</h2>
         <button
           className="in-case-you-missed__button"
           onClick={() => setClosed(true)}
         >
-          <Svg.Close />
+          <Svg.Close.outline />
         </button>
       </div>
       <ul ref={videoListRef} className="in-case-you-missed__videos">
@@ -85,18 +87,24 @@ export default function InCaseYouMissed() {
 
       <button
         className="in-case-you-missed__prev"
-        onClick={() => scroll('left')}
-        style={{ opacity: canScrollLeft ? 1 : 0, pointerEvents: canScrollLeft ? 'auto' : 'none' }}
+        onClick={() => scroll("left")}
+        style={{
+          opacity: canScrollLeft ? 1 : 0,
+          pointerEvents: canScrollLeft ? "auto" : "none",
+        }}
       >
-        <Svg.Chevron />
+        <Svg.ArrowDown.outline />
       </button>
 
       <button
         className="in-case-you-missed__next"
-        onClick={() => scroll('right')}
-        style={{ opacity: canScrollRight ? 1 : 0, pointerEvents: canScrollRight ? 'auto' : 'none' }}
+        onClick={() => scroll("right")}
+        style={{
+          opacity: canScrollRight ? 1 : 0,
+          pointerEvents: canScrollRight ? "auto" : "none",
+        }}
       >
-        <Svg.Chevron />
+        <Svg.ArrowDown.outline />
       </button>
     </div>
   );

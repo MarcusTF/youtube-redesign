@@ -8,7 +8,7 @@ export const SearchBar = () => {
 
   return (
     <div className="header__search-bar">
-      <Svg.MagnifyingGlass className="search-bar__icon search-bar__icon--mic" />
+      <Svg.Search.outline className="search-bar__icon search-bar__icon--search" />
       <input
         className="search-bar__input"
         type="text"
@@ -17,7 +17,7 @@ export const SearchBar = () => {
         onChange={(e) => search.setSearchQuery(e.target.value)}
       />
       <button className="search-bar__button">
-        <Svg.Mic className="search-bar__icon search-bar__icon--mic" />
+        <Svg.Mic.outline className="search-bar__icon search-bar__icon--mic" />
       </button>
     </div>
   );

@@ -14,13 +14,13 @@ export function TitleMenu() {
         onClick={toggleSidebar}
       >
         <AccessibleIcon.Root label={isOpen ? "Close menu" : "Open menu"}>
-          <Svg.Hamburger />
+          <Svg.Menu.outline />
         </AccessibleIcon.Root>
       </button>
       <a href="/" className="header__title-menu-link">
         <h1 className="header__title-menu-title">
           <AccessibleIcon.Root label="YouTube">
-            <Svg.Youtube />
+            <Svg.YouTube />
           </AccessibleIcon.Root>
         </h1>
       </a>

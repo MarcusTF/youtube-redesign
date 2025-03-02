@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />}>
             <Route path="" element={<Home />} />
+            <Route path="*" element={<div>Not Found</div>} />
           </Route>
         </Routes>
         <ReactQueryDevtools initialIsOpen={false} />

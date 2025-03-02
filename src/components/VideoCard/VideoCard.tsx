@@ -1,14 +1,14 @@
 import dayjs from "dayjs";
 import Svg from "../../assets/vector";
 import { bemModifiers } from "../../services/utilities";
-import { DateTime, ImageUrl } from "../../types";
+import { DateTime, Image } from "../../types";
 import "./VideoCard.css";
 
 export interface VideoCardProps {
   /**
    * Video thumbnail image URL
    */
-  thumbnail: ImageUrl;
+  thumbnail: Image;
   /**
    * Video duration in seconds
    */
@@ -16,7 +16,7 @@ export interface VideoCardProps {
   /**
    * Channel avatar image URL
    */
-  channelAvatar: ImageUrl;
+  channelAvatar: Image;
   /**
    * Video title
    */
@@ -171,7 +171,7 @@ const VideoCard = ({
             // Handle menu click
           }}
         >
-          <Svg.MenuDots className="video-card__menu-icon" />
+          <Svg.More.outline className="video-card__menu-icon" />
         </button>
       </div>
     </article>

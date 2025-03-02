@@ -106,6 +106,23 @@
   fill: var(--white);
 }
 
+@media (max-width: 1080px) {
+  .suggestions .suggestions__actions {
+    /* flex-direction: row-reverse; */
+  }
+  .suggestions .suggestions__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0px 0px;
+  }
+  .suggestions .suggestions__button span {
+    display: none;
+  }
+}
+
 @keyframes thumbs-up {
   0% {
     transform: scale(1) translateY(0) rotate(0deg);

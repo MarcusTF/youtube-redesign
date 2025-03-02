@@ -1,4 +1,4 @@
-export type ImageUrl = {
+export type Image = {
   title: string;
   description: string;
   url: string;

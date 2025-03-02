@@ -251,3 +251,20 @@
     transform: translateY(-10%);
   }
 }
+
+@media (max-width: 1080px) {
+  .shorts .shorts__actions {
+    /* flex-direction: row-reverse; */
+  }
+  .shorts .shorts__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0px 0px;
+  }
+  .shorts .shorts__button span {
+    display: none;
+  }
+}

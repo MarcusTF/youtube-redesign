@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import Svg from "../../../../../../assets/vector";
 import VideoCard from "../../../../../../components/VideoCard/VideoCard";
-import { useGetInCaseYouMissed } from "../../../../../../services/api/api";
+import { useGetShorts } from "../../../../../../services/api/api";
 
 import { bemModifiers } from "../../../../../../services/utilities";
 import "./Shorts.css";
@@ -12,7 +12,12 @@ export default function Shorts() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [showMore, setShowMore] = useState<boolean | null>(null);
-  const { data, isLoading } = useGetInCaseYouMissed({ page: 1, perPage: 15 });
+  const { data, isLoading } = useGetShorts({
+    page: 1,
+    perPage: 15,
+    tag: "shorts",
+  });
+
   const videoListRef = useRef<HTMLUListElement>(null);
 
   const checkScrollability = () => {
@@ -68,7 +73,7 @@ export default function Shorts() {
     >
       <div className="shorts__header">
         <h2>
-          <Svg.ShortsFilled /> Shorts
+          <Svg.Shorts.filled /> Shorts
         </h2>
         <div className="shorts__actions">
           <button
@@ -78,7 +83,10 @@ export default function Shorts() {
             ])}
             onClick={() => setClosed(true)}
           >
-            <Svg.Close /> Not interested
+            <Svg.Close.outline />
+            <span className="button__text button__text--not-interested">
+              Not interested
+            </span>
           </button>
           <button
             className={bemModifiers("shorts__button", [
@@ -87,7 +95,10 @@ export default function Shorts() {
             ])}
             onClick={() => setShowMore(true)}
           >
-            <Svg.ThumbsUp /> Show me more
+            <Svg.LikedVideos.outline />
+            <span className="button__text button__text--show-more">
+              Show me more
+            </span>
           </button>
         </div>
       </div>
@@ -111,7 +122,7 @@ export default function Shorts() {
           pointerEvents: canScrollLeft ? "auto" : "none",
         }}
       >
-        <Svg.Chevron />
+        <Svg.ArrowDown.outline />
       </button>
 
       <button
@@ -122,7 +133,7 @@ export default function Shorts() {
           pointerEvents: canScrollRight ? "auto" : "none",
         }}
       >
-        <Svg.Chevron />
+        <Svg.ArrowDown.outline />
       </button>
     </div>
   );

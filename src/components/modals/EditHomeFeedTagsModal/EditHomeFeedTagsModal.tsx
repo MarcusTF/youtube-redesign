@@ -25,13 +25,13 @@ export default function EditHomeFeedTagsModal() {
               <h1>Personalized Feed</h1>
               <div className="modal__actions-container">
                 <button className="modal__action-button modal__action-button--gear">
-                  <Svg.Gear />
+                  <Svg.Settings.outline />
                 </button>
                 <button
                   onClick={() => setIsEditTagsModalOpen(false)}
                   className="modal__action-button modal__action-button--close"
                 >
-                  <Svg.Close />
+                  <Svg.Close.outline />
                 </button>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function EditHomeFeedTagsModal() {
                 <div className="tags">
                   {data?.data?.data?.slice?.(0, 20).map(({ id, name }) => (
                     <Tag key={id} modifier={"editing"} loading={isLoading}>
-                      {name} <Svg.Close className="tag__close-icon" />
+                      {name} <Svg.Close.outline className="tag__close-icon" />
                     </Tag>
                   ))}
                 </div>
@@ -69,7 +69,7 @@ export default function EditHomeFeedTagsModal() {
                 <div className="tags">
                   {data?.data?.data?.slice?.(20, 30).map(({ id, name }) => (
                     <Tag key={id} modifier={"editing"} loading={isLoading}>
-                      {name} <Svg.Close className="tag__close-icon" />
+                      {name} <Svg.Close.outline className="tag__close-icon" />
                     </Tag>
                   ))}
                 </div>
