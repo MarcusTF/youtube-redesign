@@ -236,6 +236,7 @@ export type GetNotificationsProps = VideosProps;
 
 export type GetNotificationsResult = VideoCardProps & {
   [key: string]: unknown;
+  channelId: string;
 };
 
 export async function getNotifications({ page, perPage, tag }: GetShortsProps) {
@@ -244,6 +245,7 @@ export async function getNotifications({ page, perPage, tag }: GetShortsProps) {
       _quantity: perPage,
       _seed: page + (tag || "") + 8888,
       ...VIDEO_PARAMS,
+      channelId: Faker.uuid,
     },
   });
 }
