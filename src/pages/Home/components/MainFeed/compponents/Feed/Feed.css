@@ -5,4 +5,9 @@
   padding-top: 20px;
   column-gap: 19px;
   row-gap: 45px;
+  overflow: hidden;
+}
+
+.feed .feed-list > *:empty {
+  display: none;
 }

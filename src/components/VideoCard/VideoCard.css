@@ -5,6 +5,7 @@
   min-width: 325px;
   font-family: var(--font);
   cursor: pointer;
+  /* overflow: hidden; */
 }
 
 .video-card__thumbnail-container {

@@ -1,19 +1,21 @@
 .suggestions {
-  --fade: linear-gradient(
-    266.56deg,
-    #1f2224 31.83%,
-    rgba(37, 34, 34, 0) 83.17%
-  );
   display: flex;
   flex-direction: column;
-  overflow: auto;
   width: 100%;
   gap: 30px;
   background-color: transparent;
-  border: 1px solid #b082ff5e;
+  border: 1px solid var(--light-violet);
   padding: 30px;
   border-radius: 20px;
   position: relative;
+}
+
+.suggestions__actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
 }
 
 .suggestions.closed {
@@ -38,10 +40,14 @@
 
 .suggestions .suggestions__videos {
   list-style: none;
-  display: flex;
-  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-auto-rows: 0; /* Set auto rows to 0 height */
+  grid-template-rows: auto; /* First row is auto height */
+  overflow: hidden;
+  max-height: min-content;
   width: 100%;
-  gap: 20px;
+  column-gap: 20px;
 }
 
 .suggestions .suggestions__header {
@@ -61,20 +67,73 @@
 }
 
 .suggestions .suggestions__button {
+  background-color: var(--light-violet);
   cursor: pointer;
-  height: 24px;
-  width: 24px;
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
   border: none;
+  padding: 10px 24px 10px 16px;
+  gap: 8px;
+  height: 32px;
+  background: rgba(176, 130, 255, 0.21);
+  border-radius: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--white);
+}
+.suggestions .suggestions__button--show-more {
+  background-color: var(--light-violet);
+}
+.suggestions .suggestions__button--close {
+  background-color: var(--nearly-transparent-white);
+}
+
+.suggestions .suggestions__button--close.suggestions__button--hidden {
+  animation: fadeOut 0.2s ease-in-out forwards;
+}
+.suggestions .suggestions__button--show-more.suggestions__button--selected svg {
+  animation: thumbs-up 0.4s ease-in forwards;
 }
 
 .suggestions .suggestions__button svg {
   height: 24px;
   width: 24px;
   fill: var(--white);
+}
+
+@keyframes thumbs-up {
+  0% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) translateY(3px) rotate(15deg);
+  }
+  60% {
+    transform: scale(1.2) translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.2) translateY(-3px) rotate(-15deg);
+  }
+  100% {
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    display: flex;
+    opacity: 1;
+  }
+  99% {
+    display: flex;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
 }

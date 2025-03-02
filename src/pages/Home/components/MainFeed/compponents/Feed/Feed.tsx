@@ -12,8 +12,6 @@ export default function Feed() {
     tag: home.selectedTag || "",
   });
 
-  console.log(home);
-
   return (
     <div className="feed">
       <ul className="feed-list">

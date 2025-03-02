@@ -4,13 +4,19 @@ import VideoCard from "../../../../../../components/VideoCard/VideoCard";
 import { useGetInCaseYouMissed } from "../../../../../../services/api/api";
 
 import clsx from "clsx";
+import { bemModifiers } from "../../../../../../services/utilities";
 import "./Suggestions.css";
 
 export default function Suggestions() {
   const [closed, setClosed] = useState(false);
   const [showMore, setShowMore] = useState<boolean | null>(null);
-  const { data, isLoading } = useGetInCaseYouMissed({ page: 1, perPage: 15 });
+
   const videoListRef = useRef<HTMLUListElement>(null);
+
+  const { data, isLoading } = useGetInCaseYouMissed({
+    page: 1,
+    perPage: 4,
+  });
 
   return (
     <div
@@ -23,13 +29,19 @@ export default function Suggestions() {
         <h2>In Case You Missed</h2>
         <div className="suggestions__actions">
           <button
-            className="suggestions__button"
+            className={bemModifiers("suggestions__button", [
+              "close",
+              { hidden: showMore },
+            ])}
             onClick={() => setClosed(true)}
           >
             <Svg.Close /> Not interested
           </button>
           <button
-            className="suggestions__button"
+            className={bemModifiers("suggestions__button", [
+              "show-more",
+              { selected: showMore },
+            ])}
             onClick={() => setShowMore(true)}
           >
             <Svg.ThumbsUp /> Show me more
@@ -38,7 +50,7 @@ export default function Suggestions() {
       </div>
       <ul ref={videoListRef} className="suggestions__videos">
         {isLoading &&
-          Array.from({ length: 15 }).map((_, index) => (
+          Array.from({ length: 4 }).map((_, index) => (
             <VideoCard key={index} loading={isLoading} />
           ))}
         {data?.data?.data?.map((video) => (

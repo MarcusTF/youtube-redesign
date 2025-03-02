@@ -9,7 +9,7 @@ import "./MenuItemAccordion.css";
 export default function MenuItemAccordion({
   to,
   icon,
-  activeIcon,
+  // activeIcon,
   label,
   children,
 }: {
@@ -30,7 +30,7 @@ export default function MenuItemAccordion({
         <Accordion.Header className="menu-item-accordion__header">
           <NavLink to={to} className="menu-item-accordion__link">
             {icon}
-            {activeIcon}
+            {/* {activeIcon} */}
             <span className="menu-item-accordion__label">{label}</span>
           </NavLink>
           <Separator.Root
