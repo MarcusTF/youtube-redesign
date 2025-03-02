@@ -278,9 +278,7 @@ export type FakerAPICustomField = keyof FakerAPICustomFieldType;
 //   userAddress: "address"
 // };
 
-export interface FakerResponse<
-  TData extends Partial<Record<string, unknown>> = Record<string, unknown>,
-> {
+export interface FakerResponse<TData extends { [key: string]: unknown }> {
   status: string;
   code: number;
   locale: string;

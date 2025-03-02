@@ -4,10 +4,9 @@
   list-style: none;
   display: flex;
   overflow-x: auto;
-  /* hide scrollbars */
+  padding-right: 55px;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-right: 55px;
 }
 
 .tag-list::-webkit-scrollbar {

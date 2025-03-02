@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import React from "react";
 import Svg from "../../assets/vector";
 import { bemModifiers } from "../../services/utilities";
 import { DateTime, ImageUrl } from "../../types";
@@ -38,30 +37,41 @@ export interface VideoCardProps {
    * Video ID
    */
   id: string;
+
   /**
    * Optional click handler for the video card
    */
   onClick?: () => void;
+  /**
+   * Optional loading state for the video card
+   */
+  loading?: boolean;
 }
 
 export const EMPTY_VIDEO_FOR_SKELETON = {
   thumbnail: {
     url: "LOADING",
     description: ".",
+    title: "",
   },
   duration: 0,
   channelAvatar: {
     url: "LOADING",
     description: ".",
+    title: ".",
   },
   title: ".",
   channelName: ".",
   views: 0,
-  uploadDateTime: dayjs().toISOString(),
+  uploadDateTime: {
+    date: "",
+    timezone: "",
+    timezone_type: 1,
+  },
   id: "loading",
-};
+} satisfies VideoCardProps;
 
-const calculateDurationFromSeconds = (seconds: number): string => {
+function calculateDurationFromSeconds(seconds: number): string {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
   const secondsRemaining = seconds % 60;
@@ -71,10 +81,21 @@ const calculateDurationFromSeconds = (seconds: number): string => {
   const formattedSeconds =
     secondsRemaining < 10 ? `0${secondsRemaining}` : secondsRemaining;
 
-  return `${formattedHours}${formattedMinutes}:${formattedSeconds}`;
-};
+  const cappedHours = hours > 1 ? "1:" : formattedHours;
 
-const VideoCard: React.FC<Partial<VideoCardProps> & { loading?: boolean }> = ({
+  return `${cappedHours}${formattedMinutes}:${formattedSeconds}`;
+}
+
+function calculateViews(views: number): string {
+  if (views >= 1000000) {
+    return `${(views / 1000000).toFixed(1)}M`;
+  } else if (views >= 1000) {
+    return `${(views / 1000).toFixed(1)}K`;
+  }
+  return views.toString();
+}
+
+const VideoCard = ({
   thumbnail = EMPTY_VIDEO_FOR_SKELETON.thumbnail,
   duration = EMPTY_VIDEO_FOR_SKELETON.duration,
   channelAvatar = EMPTY_VIDEO_FOR_SKELETON.channelAvatar,
@@ -82,9 +103,10 @@ const VideoCard: React.FC<Partial<VideoCardProps> & { loading?: boolean }> = ({
   channelName = EMPTY_VIDEO_FOR_SKELETON.channelName,
   views = EMPTY_VIDEO_FOR_SKELETON.views,
   uploadDateTime = EMPTY_VIDEO_FOR_SKELETON.uploadDateTime,
+  id,
   onClick = () => {},
   loading = false,
-}) => {
+}: Partial<VideoCardProps>) => {
   return (
     <article
       className={bemModifiers("video-card", { loading })}
@@ -94,7 +116,7 @@ const VideoCard: React.FC<Partial<VideoCardProps> & { loading?: boolean }> = ({
         <div className="video-card__thumbnail-wrapper">
           {thumbnail?.url && thumbnail?.url !== "LOADING" ? (
             <img
-              src={thumbnail?.url}
+              src={`${thumbnail?.url}?random=${id}`}
               alt={thumbnail?.description}
               className="video-card__thumbnail-background"
               aria-hidden="true"
@@ -115,7 +137,7 @@ const VideoCard: React.FC<Partial<VideoCardProps> & { loading?: boolean }> = ({
         <div className="video-card__content-wrapper">
           {channelAvatar?.url && channelAvatar?.url !== "LOADING" ? (
             <img
-              src={channelAvatar?.url}
+              src={`${channelAvatar?.url}?random=${id}2`}
               alt={`${channelName} channel avatar`}
               className="video-card__channel-avatar"
             />
@@ -130,7 +152,7 @@ const VideoCard: React.FC<Partial<VideoCardProps> & { loading?: boolean }> = ({
               <div className="video-card__channel-name-wrapper">
                 <span className="video-card__channel-name">{channelName}</span>
               </div>
-              <p className="video-card__statistics">{`${views} views • ${Math.abs(dayjs(uploadDateTime.date).diff(dayjs(), "year"))} days ago`}</p>
+              <p className="video-card__statistics">{`${calculateViews(views)} views • ${Math.abs(dayjs(uploadDateTime?.date).diff(dayjs(), "year"))} days ago`}</p>
             </div>
           </div>
         </div>
