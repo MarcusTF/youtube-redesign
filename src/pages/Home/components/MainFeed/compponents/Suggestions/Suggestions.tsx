@@ -16,6 +16,7 @@ export default function Suggestions() {
   const { data, isLoading } = useGetInCaseYouMissed({
     page: 1,
     perPage: 4,
+    tag: "suggested",
   });
 
   return (

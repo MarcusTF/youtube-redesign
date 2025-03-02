@@ -46,6 +46,11 @@ export interface VideoCardProps {
    * Optional loading state for the video card
    */
   loading?: boolean;
+
+  /**
+   * Whether the video is a "short"
+   */
+  short?: boolean;
 }
 
 const EMPTY_VIDEO_FOR_SKELETON = {
@@ -106,10 +111,11 @@ const VideoCard = ({
   id,
   onClick = () => {},
   loading = false,
+  short = false,
 }: Partial<VideoCardProps>) => {
   return (
     <article
-      className={bemModifiers("video-card", { loading })}
+      className={bemModifiers("video-card", { loading, short })}
       onClick={onClick}
     >
       <div className="video-card__thumbnail-container">
@@ -135,7 +141,8 @@ const VideoCard = ({
 
       <div className="video-card__info-container">
         <div className="video-card__content-wrapper">
-          {channelAvatar?.url && channelAvatar?.url !== "LOADING" ? (
+          {short ? null : channelAvatar?.url &&
+            channelAvatar?.url !== "LOADING" ? (
             <img
               src={`${channelAvatar?.url}?random=${id}2`}
               alt={`${channelName} channel avatar`}

@@ -1,0 +1,253 @@
+.shorts {
+  --fade: linear-gradient(
+    270deg,
+    var(--primary-color) 31.83%,
+    rgba(37, 34, 34, 0) 83.17%
+  );
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+  background-color: transparent;
+  border: 1px solid var(--light-blue);
+  padding: 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.shorts.closed {
+  animation: slide-up-and-fade-out 0.3s ease forwards;
+}
+
+@keyframes slide-up-and-fade-out {
+  0% {
+    max-height: 327px;
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  99% {
+    display: flex;
+  }
+  100% {
+    max-height: 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.shorts::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right: 0px;
+  width: 157px;
+  height: 100%;
+  background: var(--fade);
+  z-index: 2;
+  pointer-events: none;
+}
+.shorts::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0px;
+  width: 157px;
+  height: 100%;
+  background: var(--fade);
+  z-index: 2;
+  pointer-events: none;
+  transform: rotate(180deg);
+}
+/* Add transitions for fade effects */
+.shorts::before,
+.shorts::after {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+/* Fade out effects when at the beginning/end */
+.shorts.no-left-fade::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shorts.no-right-fade::after {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shorts__next,
+.shorts__prev {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: #3f3f3f;
+  box-shadow:
+    0px 4.8px 4.8px rgba(0, 0, 0, 0.1),
+    0px 0px 9.6px rgba(0, 0, 0, 0.1);
+  border-radius: 28.8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 3;
+  /* Add animation properties */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  opacity: 1;
+}
+.shorts__next {
+  right: 20px;
+}
+.shorts__prev {
+  left: 20px;
+}
+
+.shorts__next svg {
+  transform: rotate(-90deg);
+}
+.shorts__prev svg {
+  transform: rotate(90deg);
+}
+
+.shorts .shorts__videos {
+  list-style: none;
+  display: flex;
+  overflow: auto;
+  width: 100%;
+  gap: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.shorts .shorts__videos::-webkit-scrollbar {
+  display: none;
+}
+
+.shorts .shorts__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+.shorts .shorts__header h2 {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+/* .shorts .shorts__button {
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+} */
+
+.shorts .shorts__button svg {
+  height: 24px;
+  width: 24px;
+  fill: var(--white);
+}
+
+.shorts .shorts__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+}
+.shorts .shorts__header h2 {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shorts .shorts__button {
+  background-color: var(--light-violet);
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 10px 24px 10px 16px;
+  gap: 8px;
+  height: 32px;
+  background: rgba(176, 130, 255, 0.21);
+  border-radius: 24px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--white);
+}
+
+.shorts .shorts__button--show-more {
+  background-color: var(--light-blue);
+}
+.shorts .shorts__button--close {
+  background-color: var(--nearly-transparent-white);
+}
+
+.shorts .shorts__button--close.shorts__button--hidden {
+  animation: fadeOut 0.2s ease-in-out forwards;
+}
+.shorts .shorts__button--show-more.shorts__button--selected svg {
+  animation: thumbs-up 0.4s ease-in forwards;
+}
+
+.shorts .shorts__button svg {
+  height: 24px;
+  width: 24px;
+  fill: var(--white);
+}
+
+.shorts__actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.shorts.closed {
+  animation: slide-up-and-fade-out 0.1s ease forwards;
+}
+
+@keyframes slide-up-and-fade-out {
+  0% {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  99% {
+    display: flex;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}

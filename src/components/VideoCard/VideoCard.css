@@ -8,6 +8,17 @@
   /* overflow: hidden; */
 }
 
+.video-card--short {
+  max-width: 231px;
+  width: 231px;
+}
+
+.video-card--short .video-card__thumbnail-container,
+.video-card--short .video-card__thumbnail-wrapper,
+.video-card--short .video-card__thumbnail-background {
+  aspect-ratio: 9/16;
+}
+
 .video-card__thumbnail-container {
   border-radius: 16px;
   display: flex;
