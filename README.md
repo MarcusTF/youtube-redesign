@@ -1,3 +1,7 @@
+Based on design by [Juxtaposed](https://www.youtube.com/@juxtopposed)
+
+Figma: [YouTube Redesign](https://www.figma.com/community/file/1450380484645543336)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
