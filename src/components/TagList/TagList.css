@@ -20,7 +20,7 @@
 .tag-container svg {
   right: 0;
   top: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  transform: translate(-50%, -50%) rotate(90deg);
   position: absolute;
   z-index: 2;
 }

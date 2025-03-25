@@ -111,10 +111,10 @@
 }
 
 .shorts__next svg {
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
 }
 .shorts__prev svg {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
 }
 
 .shorts .shorts__videos {

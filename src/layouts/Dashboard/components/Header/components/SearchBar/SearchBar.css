@@ -42,4 +42,5 @@
 
 .search-bar__icon {
   min-width: 25px;
+  opacity: 0.5;
 }
